@@ -1,7 +1,6 @@
 import { module, test } from 'ember-qunit';
 import { reject } from 'rsvp';
-import rethrow from 'exception-handling/utils/rethrow';
-import PatternMatcher from 'exception-handling/utils/pattern-matcher';
+import { PatternMatcher, rethrow } from 'ember-exception-handling';
 
 module('Unit | Utility | exception-handling/utils/rethrow');
 

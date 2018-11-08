@@ -1,6 +1,6 @@
 import { module, test } from 'ember-qunit';
 import { A } from '@ember/array';
-import PatternMatcher from 'exception-handling/utils/pattern-matcher';
+import { PatternMatcher } from 'ember-exception-handling';
 
 module('Unit | Utility | exception-handling/utils/pattern-matcher');
 
