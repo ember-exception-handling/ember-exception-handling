@@ -12,7 +12,21 @@ ember install ember-exception-handling
 
 ## Usage
 
-Some example usages are listed below:
+While some errors in JavaScript applications are typed, and specific types of `Error`s can be evaluated for,
+most errors are simply utilizing the `Error` class. As such, the same exception handling semantics aren't as
+readily available to JavaScript engineers.
+
+While the above is true, it's still possible to make use of patterns that help evaluate whether a certain kind
+of error has been throw. To do this, we employ _pattern matching_, which allows us flexibility to introspect
+errors and error properties to determine how to handle each exception.
+
+This addon comes with a few useful types and utilities.
+
+### `PatterMatcher` Class
+
+`PatternMatcher` is a class used to specify an error pattern to match. The `PatternMatcher` constructor takes the following forms:
+
+#### `constructor(error, Function)`
 
 ```js
 import PatternMatcher from 'exception-handling/utils/pattern-matcher';
@@ -25,6 +39,8 @@ const matcher = new PatternMatcher(error, function(errorToMatch) {
 const isMatch = matcher.match(); // true
 ```
 
+#### `constructor(error, Object);`
+
 ```js
 import PatternMatcher from 'exception-handling/utils/pattern-matcher';
 
@@ -35,11 +51,15 @@ const matcher = new PatternMatcher(error, { message: 'test' });
 const isMatch = matcher.match(); // true
 ```
 
+### `rethrow` Utility
+
+TL;DR use when you want to match certain patterns within an error, and rethrow anything
+not matched.
+
 ```js
 import rethrow from 'exception-handling/utils/rethrow';
 
 getResource().catch(
-  // will re-throw if matcher does not match the error object
   rethrow({
     matcher: { message: 'test' },
 
@@ -50,12 +70,15 @@ getResource().catch(
 );
 ```
 
+### `retry` Utility
+
+TL;DR use when you want to retry if a certain pattern is matched, and rethrow anything not matched.
+
 ```js
 import retry from 'exception-handling/utils/retry';
 import { resolve } from 'rsvp';
 
 getResource().catch(
-  // will retry if matcher matches the error object and re-throw otherwise
   retry({
     matcher: { message: 'test' },
 
