@@ -5,11 +5,11 @@ import PatternMatcher from './pattern-matcher';
  * A utility function for catching / handling errors based upon
  * a particular pattern
  *
- * @name rethrow
+ * @name match
  * @param {Object} error The error object
- * @param {Object} rethrowHandler The rethrow handler
+ * @param {Object} matchHandler The match handler
  */
-function rethrow(error, { matcher, onMatch }) {
+function match(error, { matcher, onMatch }) {
   const patternMatcher =
     matcher instanceof PatternMatcher
       ? matcher
@@ -22,4 +22,4 @@ function rethrow(error, { matcher, onMatch }) {
   throw error;
 }
 
-export default curryRight(rethrow);
+export default curryRight(match);
