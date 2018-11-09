@@ -51,16 +51,16 @@ const matcher = new PatternMatcher(error, { message: 'test' });
 const isMatch = matcher.match(); // true
 ```
 
-### `rethrow` Utility
+### `match` Utility
 
 TL;DR use when you want to match certain patterns within an error, and rethrow anything
 not matched.
 
 ```js
-import rethrow from 'exception-handling/utils/rethrow';
+import match from 'exception-handling/utils/match';
 
 getResource().catch(
-  rethrow({
+  match({
     matcher: { message: 'test' },
 
     onMatch(e) {

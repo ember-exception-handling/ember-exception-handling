@@ -15,7 +15,7 @@ function getStrategy(error, handler) {
 
 /**
  * A simple pattern matcher - can be used on its own or in conjunction
- * with the retry utility / rethrow utility
+ * with the match utility / retry utility
  */
 export default class PatternMatcher {
   constructor(error, handler) {
