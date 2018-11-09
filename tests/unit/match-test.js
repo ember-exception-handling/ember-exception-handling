@@ -27,7 +27,7 @@ test('should throw if the pattern does not match', function(assert) {
   });
 });
 
-test('should not match if the pattern matches when passed as an argument to catch', async function(assert) {
+test('should not rethrow if the pattern matches when passed as an argument to catch', async function(assert) {
   assert.expect(2);
 
   const error = new Error('test');
@@ -48,7 +48,7 @@ test('should not match if the pattern matches when passed as an argument to catc
   assert.deepEqual(ret, [], 'The error is properly handled');
 });
 
-test('should match if the pattern does not match when passed as an argument to catch', function(assert) {
+test('should rethrow if the pattern does not match when passed as an argument to catch', function(assert) {
   assert.expect(1);
 
   const error = new Error('test');
