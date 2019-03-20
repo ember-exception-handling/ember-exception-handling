@@ -7,7 +7,7 @@ module.exports = function() {
     getChannelURL('release'),
     getChannelURL('beta'),
     getChannelURL('canary'),
-  ]).then(urls => {
+  ]).then(([release, beta, canary]) => {
     return {
       useYarn: true,
       scenarios: [
@@ -37,7 +37,7 @@ module.exports = function() {
           name: 'ember-release',
           npm: {
             devDependencies: {
-              'ember-source': urls[0],
+              'ember-source': release,
             },
           },
         },
@@ -45,7 +45,7 @@ module.exports = function() {
           name: 'ember-beta',
           npm: {
             devDependencies: {
-              'ember-source': urls[1],
+              'ember-source': beta,
             },
           },
         },
@@ -53,7 +53,7 @@ module.exports = function() {
           name: 'ember-canary',
           npm: {
             devDependencies: {
-              'ember-source': urls[2],
+              'ember-source': canary,
             },
           },
         },
