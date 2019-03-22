@@ -1,6 +1,6 @@
 # ember-exception-handling
 
-![Build status](https://travis-ci.org/brendenpalmer/ember-exception-handling.svg?branch=master 'Build status')
+![Build status](https://travis-ci.com/ember-exception-handling/ember-exception-handling.svg?branch=master 'Build status')
 
 This addon provides utilities related to exception handling for Ember applications.
 
@@ -93,7 +93,7 @@ getResource().catch(
 
 ### Installation
 
-- `git clone https://github.com/brendenpalmer/ember-exception-handling.git`
+- `git clone https://github.com/ember-exception-handling/ember-exception-handling.git`
 - `cd ember-exception-handling`
 - `npm install`
 
