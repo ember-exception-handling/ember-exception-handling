@@ -1,14 +1,13 @@
 module.exports = {
   root: true,
   parserOptions: {
-    ecmaVersion: 2017,
+    ecmaVersion: 2018,
     sourceType: 'module',
   },
   plugins: ['ember', 'prettier'],
   extends: ['eslint:recommended', 'plugin:ember/recommended'],
   env: {
     browser: true,
-    node: true,
   },
   rules: {
     'prettier/prettier': 'error',
