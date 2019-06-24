@@ -1,4 +1,4 @@
-import curryRight from 'lodash/curryRight';
+import { curryRight } from '../-internal/curry-utils';
 import PatternMatcher from './pattern-matcher';
 
 /**
